@@ -2,114 +2,127 @@
 <!-- served from your routes in server.js -->
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>NICE</title>
-    <meta name="description" content="nicenicenice" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
 
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/addons/p5.sound.min.js"></script>
-    <script src="/laura.js"></script>
-    <script src="/sanitize.js"></script>
-    <script src="/script.js"></script>
-    <style>
-      body {
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        max-width: 100%;
-        font-family: sans-serif;
-        color: white;
-        text-align:center;
-      }
-      p,h1{
-        padding:0;margin:0;
-      }
-      .form {
-        display:flex;
-        flex-direction:column;
-        justify-content:center;
-        align-items:center;
-        position: absolute;
-        padding:10px;
-        background-color: rgba(0, 0, 0, 0.3);
-      }
-      form {
-        display:flex;
-        flex-direction:column;
-      }
-      .fields {
-        display:flex;
-        justify-content:center;
-        align-items:center;
-        flex-wrap:wrap;
-      }
-      field {
-        display:flex;
-        flex-direction:column;
-        margin:10px;
-        padding:10px;
-        justify-content:center;
-        background-color: rgba(0, 0, 0, 0.3);
-        align-items:center;
-      }
-      .drop{
-        position:relative;
-        top:0;
-      }
-      input {
-        width:100%;
-      }
-      .closed{
-        display:none;
-      }
-      #toggle {
-        position:absolute;
-        left:5px;
-        top:5px;
-        z-index:10000;
-        opacity:.5;
-      }
-    </style>
-    <script>
-    function toggle(){
+<head>
+  <title>NICE</title>
+  <meta name="description" content="nicenicenice" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/p5.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.3.1/lib/addons/p5.sound.min.js"></script>
+  <script src="laura.js"></script>
+  <script src="script.js"></script>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+      max-width: 100%;
+      font-family: sans-serif;
+      color: white;
+      text-align: center;
+    }
+
+    p,
+    h1 {
+      padding: 0;
+      margin: 0;
+    }
+
+    .form {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      position: absolute;
+      padding: 10px;
+      background-color: rgba(0, 0, 0, 0.3);
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .fields {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-wrap: wrap;
+    }
+
+    field {
+      display: flex;
+      flex-direction: column;
+      margin: 10px;
+      padding: 10px;
+      justify-content: center;
+      background-color: rgba(0, 0, 0, 0.3);
+      align-items: center;
+    }
+
+    .drop {
+      position: relative;
+      top: 0;
+    }
+
+    input {
+      width: 100%;
+    }
+
+    .closed {
+      display: none;
+    }
+
+    #toggle {
+      position: absolute;
+      left: 5px;
+      top: 5px;
+      z-index: 10000;
+      opacity: .5;
+    }
+  </style>
+  <script>
+    function toggle() {
       var box = document.getElementById('box');
       var toggler = document.getElementById('toggle');
-      if (box.classList.contains("closed")){
+      if (box.classList.contains("closed")) {
         box.classList.remove("closed");
         toggler.innerHTML = "^";
       } else {
         box.classList.add("closed");
         toggler.innerHTML = "v";
-        
+
       }
     }
-    </script>
-  </head>
-  <body>
-    <button id="toggle" onclick="toggle()">
-      ^
-    </button>
-    <div id="box" class="form">
-      <h1>
-        Nice Maker
-      </h1>
-      <p>
-        press space or tap if you're on mobile <br>
-        to see the nice, press m to mute. <br>
-        toggle display with upper left button.
-      </p>
-      <form onsubmit="nice_reload(); return false">
-        <div class="fields">
-          <field id="imgfield">
-            <label>URL of image</label>
-          </field>
-          <field id="soundfield">
-            <label>URL of sound (mp3)</label>
-          </field>
-        </div>
-<!--         <input type="submit" value="submit"/> -->
-      </form>
-    </div>
-  </body>
+  </script>
+</head>
+
+<body>
+  <button id="toggle" onclick="toggle()">
+    ^
+  </button>
+  <div id="box" class="form">
+    <h1>
+      Nice Maker
+    </h1>
+    <p>
+      press space or tap if you're on mobile <br>
+      to see the nice, press m to mute. <br>
+      toggle display with upper left button.
+    </p>
+    <form onsubmit="nice_reload(); return false">
+      <div class="fields">
+        <field id="imgfield">
+          <label>URL of image</label>
+        </field>
+        <field id="soundfield">
+          <label>URL of sound (mp3)</label>
+        </field>
+      </div>
+      <!--         <input type="submit" value="submit"/> -->
+    </form>
+  </div>
+</body>
+
 </html>

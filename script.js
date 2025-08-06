@@ -6,13 +6,13 @@ var bg_color;
 
 function preload() {
   img = loadImage(
-    "https://cdn.glitch.com/b9b3bf98-e21a-4cd5-9857-21ee28a21b61%2Fnice.png?v=1628716705364"
+    "assets/l.png"
   );
   img.resize(50, 0);
 
   soundFormats("mp3", "ogg");
   sound = loadSound(
-    "https://cdn.glitch.com/b9b3bf98-e21a-4cd5-9857-21ee28a21b61%2Fnice.mp3?v=1628717117530"
+    "assets/nice.mp3"
   );
 }
 
@@ -57,15 +57,15 @@ function draw() {
   if (echoStart >= 0) {
     if (frameCount - echoStart > echoDuration) {
       echoStart = -1;
-      
+
     }
     if (random() < (window.innerWidth * window.innerHeight) / 1000000) {
       new Laura();
     }
   }
-  if (Laura.clones.length==0) {
-      Laura.sound.stop();
-    
+  if (Laura.clones.length == 0) {
+    Laura.sound.stop();
+
   }
   for (var i in Laura.clones) {
     var laura = Laura.clones[i];
